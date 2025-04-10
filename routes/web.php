@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/login', function () {
+    return view('login-reg');
+})->name('login');
 
 Route::get('/createUser', [Usercontroller::class, 'createUser'])->name('createUser');
 Route::post('/crearUsuario',[UserController::class,'store'])->name('user.store');

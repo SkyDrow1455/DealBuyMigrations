@@ -23,16 +23,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
     @vite('resources/css/styles.css')
-    @vite('/css/styles.css')
   </head>
   <body>
+    <!-- Loader -->
+    
     <!-- Navigation-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="icon-custom">
         <img src="./assets/icon.png" width="30px"/>
       </div>
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#!">INICIAR SESION</a>
+        <a class="navbar-brand" href="{{ route('login') }}">INICIAR SESION</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -87,7 +88,7 @@
         </div>
 
           <form class="d-flex">
-            <button class="btn btn-outline-dark" type="submit">
+            <button class="btn btn-outline-dark" type="button">
               <i class="bi-cart-fill me-1"></i>
               Carrito
               <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
