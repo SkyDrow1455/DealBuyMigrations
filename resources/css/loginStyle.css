@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image: url(/public/assets/img/loginAssets/bg-db.jpg);
+    background-image: url(/public/assets/img/loginAssets/bg-db2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -58,6 +58,8 @@ main{
     max-width: 800px;
     margin: auto;
     position: relative;
+    box-shadow: 14px 14px 18px -4px rgba(0,0,0,0.21);
+    border-radius: 10px;
 }
 
 .caja__trasera{
@@ -157,10 +159,12 @@ main{
 .formulario__login{
     opacity: 1;
     display: block;
+    box-shadow: 14px 14px 18px -4px rgba(0,0,0,0.21);
 }
 
 .formulario__register{
     display: none;
+    box-shadow: 14px 14px 18px -4px rgba(0,0,0,0.21);
 }
 
 /*Responsive Design*/
