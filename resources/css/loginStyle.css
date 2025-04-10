@@ -18,6 +18,10 @@ p{
     color: white
 }
 
+p.blue{
+    color: #052857;
+}
+
 .back-butom {
     position: fixed;
     top: 20px;

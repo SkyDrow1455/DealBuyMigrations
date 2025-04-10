@@ -36,17 +36,20 @@
                 <!--Login-->
                 <form action="" class="formulario__login">
                     <h2>Iniciar Sesion</h2>
-                    <input  type="text" placeholder="Correo Electronico">
-                    <input type="password" placeholder="Contraseña">
+                    <input  type="text" placeholder="Correo Electronico" name="email">
+                    <input type="password" placeholder="Contraseña" name="password">
+                    <a href="">
+                        <p class="blue">Olvidaste tu contraseña?</p>
+                    </a>
                     <button>Entrar</button>
                 </form>
                 <!--Registro-->
                 <form action="" class="formulario__register">
                     <h2>Registrarse</h2>
-                    <input type="text" placeholder="Nombre Completo">
-                    <input type="text" placeholder="Correo Electronico">
-                    <input type="text" placeholder="Usuario">
-                    <input type="text" placeholder="Contraseña">
+                    <input type="text" placeholder="Nombre" name="name">
+                    <input type="text" placeholder="Correo Electronico" name="email">
+                    <input type="text" placeholder="Usuario" name="username">
+                    <input type="text" placeholder="Contraseña" name="password">
                     <button>Registrarse</button>
                 </form>
 
