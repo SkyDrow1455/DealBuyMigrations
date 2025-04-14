@@ -21,3 +21,5 @@ Route::post('/crearUsuario',[UserController::class,'store'])->name('user.store')
 
 Route::get('/createRole', [RoleController::class, 'createRole'])->name('createRole');
 Route::post('/crearRole',[RoleController::class,'rolle'])->name('role.rolle');
+
+Route::get('/ormConsultas',[OrmController::class,'consultas']);
