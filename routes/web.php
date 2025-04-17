@@ -16,6 +16,13 @@ Route::get('/login', function () {
     return view('login-reg');
 })->name('login');
 
+
+Route::get('/loader', function () {
+    return view('preloader');
+})->name('loader');
+
+
+
 Route::get('/createUser', [Usercontroller::class, 'createUser'])->name('createUser');
 Route::post('/crearUsuario',[UserController::class,'store'])->name('user.store');
 

@@ -23,10 +23,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
     @vite('resources/css/styles.css')
+    @vite('resources/css/preloaderStyle.css')
   </head>
   <body>
     <!-- Loader -->
-    
+  <div class="preloader">
+      <div class="spiner">
+          <div class="spiner">
+              <div class="spiner">
+                  <div class="spiner"> </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
     <!-- Navigation-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="icon-custom">
@@ -438,5 +448,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     @vite('resources/js/app.js')
+    @vite('resources/js/loaderScript.js')
   </body>
 </html>
