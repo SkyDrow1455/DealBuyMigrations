@@ -91,7 +91,7 @@
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#!">Todos los productos</a>
+                  <a class="dropdown-item" href="{{ route('p') }}">Todos los productos</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>

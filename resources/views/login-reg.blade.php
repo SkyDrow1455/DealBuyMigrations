@@ -8,8 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesion</title>
     @vite('resources/css/loginStyle.css')
+    @vite('resources/css/preloaderStyle.css')
 </head>
 <body>
+        <!-- Loader -->
+  <div class="preloader">
+    <div class="spiner">
+        <div class="spiner">
+            <div class="spiner">
+                <div class="spiner"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <main>
         <div class="back-butom">
             <a href="{{ route('home') }}" class="btn-inicio">
@@ -59,5 +72,6 @@
 
     </main>
     @vite('resources/js/loginScript.js')
+    @vite('resources/js/loaderScript.js')
 </body>
 </html>

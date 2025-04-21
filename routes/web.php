@@ -25,6 +25,10 @@ Route::get('/bot', function () {
     return view('chatbot');
 })->name('bot');
 
+Route::get('/p', function () {
+    return view('prueba');
+})->name('p');
+
 
 
 Route::post('/chat', [ChatGPTController::class, 'askChatGPT']);
