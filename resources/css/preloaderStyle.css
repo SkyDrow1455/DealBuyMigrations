@@ -12,7 +12,7 @@
 
 width: 70px;
 height: 70px;
-border-top: 5px solid blue;
+border-top: 5px solid #a04bb7;
 border-right: 5px solid transparent;
 border-radius: 50%;
 animation: spin 1s linear infinite;

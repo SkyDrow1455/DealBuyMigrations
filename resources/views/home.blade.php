@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
     @vite('resources/css/styles.css')
+    @vite('resources/css/chatbotStyle.css')
     @vite('resources/css/preloaderStyle.css')
   </head>
   <body>
@@ -36,7 +37,18 @@
           </div>
       </div>
   </div>
-  
+     <!-- Botón flotante para abrir el chatbot -->
+     <div id="chatbot-toggle" class="chatbot-toggle">💬</div>
+
+     <!-- Contenedor del chatbot oculto por defecto -->
+     <div class="chatbot-container" id="chatbot-container">
+         <div class="chat-header">Asistente Virtual</div>
+         <div class="chat-messages" id="chat-messages"></div>
+         <div class="chat-input-container">
+             <input type="text" id="user-input" placeholder="Escribe un mensaje..." autocomplete="off" />
+             <button id="send-btn">➤</button>
+         </div>
+     </div>
     <!-- Navigation-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="icon-custom">
@@ -448,6 +460,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     @vite('resources/js/app.js')
+    @vite('resources/js/chatbot.js')
     @vite('resources/js/loaderScript.js')
+    
   </body>
 </html>

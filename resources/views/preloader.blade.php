@@ -8,17 +8,17 @@
     @vite('resources/css/preloaderStyle.css')
 </head>
 <body>
-    <!-- LOADER -->
+    <!-- Loader --> 
     <div class="preloader">
         <div class="spiner">
             <div class="spiner">
                 <div class="spiner">
-                    <div class="spiner"> </div>
+                    <div class="spiner"></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+    <div>
+</div> 
 </body>
 </html>

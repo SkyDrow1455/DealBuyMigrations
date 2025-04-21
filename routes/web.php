@@ -6,7 +6,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\RoleController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ChatbotController;
 
 Route::get('/', function () {
     return view('home');
@@ -20,6 +20,15 @@ Route::get('/login', function () {
 Route::get('/loader', function () {
     return view('preloader');
 })->name('loader');
+
+Route::get('/bot', function () {
+    return view('chatbot');
+})->name('bot');
+
+
+
+Route::post('/openai/chat', [OpenAIController::class, 'chat']);
+
 
 
 
