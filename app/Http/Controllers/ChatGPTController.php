@@ -7,8 +7,6 @@ use GuzzleHttp\Client;
 
 class ChatGPTController extends Controller
 {
-    //
-
     public function askChatGPT(Request $request)
     {
         $client = new Client();
@@ -18,10 +16,10 @@ class ChatGPTController extends Controller
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'gpt-3.5-turbo',
+                'model' => 'gpt-4',
                 'messages' => [
                     ['role' => 'system', 'content' => 'You are a helpful assistant.'],
-                    ['role' => 'user', 'content' => $request->input('prompt')],
+                    ['role' => 'user', 'content' => $request->input('prompt')],  // Aquí se toma 'prompt'
                 ],
                 'max_tokens' => 100,
             ],
@@ -29,5 +27,4 @@ class ChatGPTController extends Controller
         $body = json_decode($response->getBody(), true);
         return response()->json(['response' => $body['choices'][0]['message']['content']]);
     }
-
 }

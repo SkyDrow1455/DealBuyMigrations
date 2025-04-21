@@ -27,7 +27,7 @@ Route::get('/bot', function () {
 
 
 
-Route::post('/api/chatbot', [ChatGPTController::class, 'askChatGPT']);
+Route::post('/chat', [ChatGPTController::class, 'askChatGPT']);
 
 
 

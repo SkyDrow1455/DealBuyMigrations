@@ -1,5 +1,5 @@
 document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('user-input').addEventListener('keypress', function (e) {
+document.getElementById('prompt').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') sendMessage();
 });
 
@@ -12,24 +12,29 @@ function appendMessage(message, sender) {
 }
 
 function sendMessage() {
-    const input = document.getElementById('user-input');
-    const message = input.value.trim();
-    if (!message) return;
+    const input = document.getElementById('prompt');  // Cambié 'user-input' a 'prompt'
+    const prompt = input.value.trim(); // Obtener el valor del campo de entrada
 
-    appendMessage(message, 'user');
-    input.value = '';
+    if (!prompt) return; // Si no hay valor, no se envía la solicitud
 
-    fetch('/api/chatbot', {
+    appendMessage(prompt, 'user');
+    input.value = ''; // Limpiar el campo de entrada
+
+    fetch('/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ prompt }) // Enviar el valor como 'prompt'
     })
     .then(res => res.json())
     .then(data => {
-        appendMessage(data.response, 'bot');
+        if (data.response) {
+            appendMessage(data.response, 'bot');
+        } else {
+            appendMessage("No response from server.", 'bot');
+        }
     })
     .catch(err => {
         console.error(err);

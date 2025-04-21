@@ -8,7 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <title>Deal buy</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/styles.css')
     @vite('resources/css/chatbotStyle.css')
     @vite('resources/css/preloaderStyle.css')
@@ -46,7 +47,7 @@
          <div class="chat-header">Asistente Virtual</div>
          <div class="chat-messages" id="chat-messages"></div>
          <div class="chat-input-container">
-             <input type="text" id="user-input" placeholder="Escribe un mensaje..." autocomplete="off" />
+             <input type="text" id="prompt" name="prompt" placeholder="Escribe un mensaje..." autocomplete="off" />
              <button id="send-btn">➤</button>
          </div>
      </div>
