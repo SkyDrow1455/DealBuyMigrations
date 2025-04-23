@@ -7,14 +7,19 @@ use App\Http\Controllers\RoleController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatbotController;
+use Illuminate\Support\Facades\Auth;
+
+
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect()->route('home');
+})->name('logout');
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
-Route::get('/login', function () {
-    return view('login-reg');
-})->name('login');
 
 
 Route::get('/loader', function () {
@@ -29,11 +34,10 @@ Route::get('/bot', function () {
 
 Route::post('/chat', [ChatGPTController::class, 'askChatGPT']);
 
+Route::post('/login-reg', [UserController::class, 'login'])->name('login');
 
-
-
-Route::get('/createUser', [Usercontroller::class, 'createUser'])->name('createUser');
-Route::post('/crearUsuario',[UserController::class,'store'])->name('user.store');
+Route::get('/login', [Usercontroller::class, 'createUser'])->name('login-reg');
+Route::post('/crearUsuario',[UserController::class,'register'])->name('user.register');
 
 Route::get('/createRole', [RoleController::class, 'createRole'])->name('createRole');
 Route::post('/crearRole',[RoleController::class,'rolle'])->name('role.rolle');

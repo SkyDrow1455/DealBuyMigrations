@@ -28,29 +28,35 @@
                 <div class="caja__trasera-register">
                     <h3>¿No tienes cuenta?</h3>
                     <p>Registrate para entrar en la pagina</p>
-                    <button id="btn__registrarse">Registrarse</button>
+                    <button type="button" id="btn__registrarse">Registrarse</button>
                 </div>
             </div>
+
             <!-- Formulario de Login y Registro -->
             <div class="contenedor__login-register">
+
+
                 <!--Login-->
-                <form action="" class="formulario__login">
+                <form action="{{ route('login') }}" method="POST" class="formulario__login">
+                    @csrf
                     <h2>Iniciar Sesion</h2>
                     <input  type="text" placeholder="Correo Electronico" name="email">
                     <input type="password" placeholder="Contraseña" name="password">
                     <a href="">
                         <p class="blue">Olvidaste tu contraseña?</p>
                     </a>
-                    <button>Entrar</button>
+                    <button type="submit">Entrar</button>
                 </form>
+
+
                 <!--Registro-->
-                <form action="" class="formulario__register">
+                <form action="{{route('user.register')}}" method="POST" class="formulario__register">
+                    @csrf
                     <h2>Registrarse</h2>
                     <input type="text" placeholder="Nombre" name="name">
                     <input type="text" placeholder="Correo Electronico" name="email">
-                    <input type="text" placeholder="Usuario" name="username">
-                    <input type="text" placeholder="Contraseña" name="password">
-                    <button>Registrarse</button>
+                    <input type="password" placeholder="Contraseña" name="password">
+                    <button type="submit">Registrarse</button>
                 </form>
 
             </div>

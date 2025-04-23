@@ -57,7 +57,9 @@
         <img src="./assets/icon.png" width="30px"/>
       </div>
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{{ route('login') }}">INICIAR SESION</a>
+
+      
+
         <button
           class="navbar-toggler"
           type="button"
@@ -70,6 +72,25 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        @if (Auth::check())
+          <div class="dropdown">
+              <a class="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                  {{ Auth::user()->name }}
+              </a>
+              <ul class="dropdown-menu">
+                  <li>
+                      <form method="POST" action="{{ route('logout') }}">
+                          @csrf
+                          <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                      </form>
+                  </li>
+              </ul>
+          </div>
+      @else
+          <a class="navbar-brand" href="{{ route('login-reg') }}">INICIAR SESIÓN</a>
+      @endif
+
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#!"
