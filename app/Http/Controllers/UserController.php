@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -18,25 +19,51 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        // Validar los datos del formulario
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',  // El nombre es requerido, debe ser un string y no puede tener más de 255 caracteres.
-            'email' => 'required|email|unique:users,email',  // El email es requerido, debe ser un email válido y no puede repetirse.
-            'password' => 'required|min:6',  // La contraseña es requerida y debe tener al menos 6 caracteres.
-        ]);
-
-        // Si la validación falla, Laravel automáticamente redirige al usuario a la vista anterior con los errores.
-
-        // Si los datos son válidos, podemos proceder a crear el usuario
+        $campos = [
+            "name" => "required",
+            "email" => "required|email|unique:users,email",
+            "password" => "required|min:6",
+            "password_confirmation" => "required|same:password",
+        ];
+    
+        $mensajes = [
+            "name.required" => "El nombre es requerido",
+            "email.required" => "El correo electrónico es requerido",
+            "email.email" => "El formato del correo electrónico es inválido",
+            "email.unique" => "Este correo ya está registrado",
+            "password.required" => "La contraseña es requerida",
+            "password.min" => "La contraseña debe tener al menos 6 caracteres",
+            "password_confirmation.required" => "Debe confirmar su contraseña",
+            "password_confirmation.required" => "Debe confirmar su contraseña",
+            "password_confirmation.same" => "Las contraseñas no coinciden",
+        ];
+    
+        $validator = Validator::make($request->all(), $campos, $mensajes);
+    
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return response()->json([
+                'name' => $errors->get('name'),
+                'email' => $errors->get('email'),
+                'password' => $errors->get('password'),
+                'password_confirmation' => $errors->get('password_confirmation'),
+                'alerta' => 'danger'
+            ]);
+        }
+    
         $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password); // Es recomendable cifrar la contraseña
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
         $user->save();
-
+    
         Auth::login($user);
-
-        return redirect()->route('home');
+    
+        return response()->json([
+            'alerta' => 'success',
+            'redirect' => route('home') // Asegúrate de tener la ruta 'home' definida en web.php
+        ]);
+        
     }
 
     public function login(Request $request)

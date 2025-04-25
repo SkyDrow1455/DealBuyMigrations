@@ -3776,7 +3776,7 @@ textarea.form-control-lg {
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color: var(--bs-navbar-brand-hover-color);
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .navbar-nav {

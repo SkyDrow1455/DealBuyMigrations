@@ -54,7 +54,9 @@
     <!-- Navigation-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="icon-custom">
-        <img src="./assets/icon.png" width="30px"/>
+
+        <!--Logo-->
+        <img src="./assets/img/logo.png" width="70px"/>
       </div>
       <div class="container px-4 px-lg-5">
 
@@ -88,7 +90,9 @@
               </ul>
           </div>
       @else
-          <a class="navbar-brand" href="{{ route('login-reg') }}">INICIAR SESIÓN</a>
+          <a class="navbar-brand" href="{{ route('login-reg') }}">
+            <img src="./assets/acceso.png" width="50px"/>
+          </a>
       @endif
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
