@@ -121,13 +121,13 @@
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#!">Todos los productos</a>
+                  <a class="dropdown-item" href="{{route('allProducts')}}">Todos los productos</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#!">Productos Populares</a>
+                  <a class="dropdown-item" href="#!">Productos Nuevos</a>
                 </li>
-                <li><a class="dropdown-item" href="#!">Nuevos</a></li>
+                <li><a class="dropdown-item" href="#!">Productos Usados</a></li>
               </ul>
             </li>
           </ul>

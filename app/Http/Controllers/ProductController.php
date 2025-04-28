@@ -30,6 +30,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->category_id = $request->input('category_id');
+        $product->condition = $request->input('condition');
         $product->user_id = Auth::id(); // Asignar el ID del usuario autenticado
         $product->save();
 
@@ -89,5 +90,30 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('myProducts')->with('success', 'Producto eliminado con éxito');
+    }
+
+    public function allProducts()
+    {
+        // Recuperar todos los productos junto con su(s) imagen(es)
+        $products = Product::with('product_image')->get();
+
+        return view('allProducts', compact('products'));
+    }
+
+
+    public function index(Request $request)
+    {
+        $query = Product::with('product_image');
+
+        // Si hay búsqueda
+        if ($request->has('search') && !empty($request->search)) {
+            $searchTerm = $request->search;
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('description', 'like', '%' . $searchTerm . '%');
+        }
+
+        $products = $query->get();
+
+        return view('productsIndex', compact('products'));
     }
 }

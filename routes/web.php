@@ -51,3 +51,9 @@ Route::post('/add-product', [ProductController::class, 'store'])->name('products
 Route::get('/my-products', [ProductController::class, 'myProducts'])->name('myProducts');
 
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/productos', [ProductController::class, 'allProducts'])->name('allProducts');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+
