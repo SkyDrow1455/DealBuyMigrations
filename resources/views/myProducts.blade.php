@@ -15,7 +15,6 @@
         @if($products->isEmpty())
         <!-- Mensaje si no hay productos -->
         <p>No has publicado productos aún</p>
-        <a href="{{ route('products.create') }}" class="btn btn-primary">Publicar un producto</a>
         @else
         <!-- Mostrar productos si hay productos publicados -->
         @foreach($products as $product)
