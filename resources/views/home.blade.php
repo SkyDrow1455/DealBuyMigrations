@@ -81,6 +81,11 @@
                   {{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu">
+                <li>
+                      <a class="dropdown-item" href="{{ route('products.create') }}">Añadir producto</a>
+                </li>
+                <li>
+                      <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
                   <li>
                       <form method="POST" action="{{ route('logout') }}">
                           @csrf

@@ -43,3 +43,11 @@ Route::get('/createRole', [RoleController::class, 'createRole'])->name('createRo
 Route::post('/crearRole',[RoleController::class,'rolle'])->name('role.rolle');
 
 Route::get('/ormConsultas',[OrmController::class,'consultas']);
+
+Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/add-product', [ProductController::class, 'store'])->name('products.store');
+
+
+Route::get('/my-products', [ProductController::class, 'myProducts'])->name('myProducts');
+
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');

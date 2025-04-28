@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->enum('condition', ['new', 'used'])->default('new');
-            $table->timestamp('published_at')->useCurrent();
+            $table->enum('condition', ['Nuevo', 'Usado'])->default('Nuevo');
+            $table->timestamps();
         
             // Foreign key
             $table->foreign('user_id')
