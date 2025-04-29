@@ -56,4 +56,7 @@ Route::get('/productos', [ProductController::class, 'allProducts'])->name('allPr
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
+Route::resource('products', \App\Http\Controllers\ProductController::class);
+
+
 

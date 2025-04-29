@@ -57,7 +57,7 @@ async function init() {
 
     // Texto
     const fontLoader = new FontLoader();
-    fontLoader.load('fonts/NauSeaTitle.json', (font) => {
+    fontLoader.load('/fonts/NauSeaTitle.json', (font) => {
         const textGeometry = new TextGeometry('Deal Buy', {
             font: font,
             size: 1, 

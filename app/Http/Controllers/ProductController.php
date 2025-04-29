@@ -116,4 +116,53 @@ class ProductController extends Controller
 
         return view('productsIndex', compact('products'));
     }
+
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        $categories = Category::all(); // <<--- Esto faltaba
+
+        return view('editProduct', compact('product', 'categories'));
+    }
+
+
+
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'condition' => 'required|in:Nuevo,Usado',
+            'image' => 'nullable|image|max:2048', // Opcional
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->condition = $request->condition;
+
+        // Si sube nueva imagen
+        if ($request->hasFile('image')) {
+            if ($product->product_image && $product->product_image->isNotEmpty()) {
+                foreach ($product->product_image as $image) {
+                    Storage::delete($image->image_url);
+                    $image->delete();
+                }
+            }
+
+            $path = $request->file('image')->store('products');
+
+            $product->product_image()->create([
+                'image_url' => $path,
+            ]);
+        }
+
+        $product->save();
+
+        return redirect()->route('myProducts')->with('success', 'Producto actualizado correctamente.');
+    }
 }

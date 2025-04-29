@@ -16,9 +16,7 @@
 <div class="container">
     @if($products->isEmpty())
     <p class="lead fw-normal text-custom mb-0 text-center">No has publicado productos aún</p>
-    <div class="text-center mt-4">
-        <a href="{{ route('products.create') }}" class="btn btn-primary">Publicar un producto</a>
-    </div>
+
     @else
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach($products as $product)
@@ -63,6 +61,11 @@
         @endforeach
     </div>
     @endif
+    <div class="text-center mt-4">
+        <a href="{{ route('products.create') }}" class="btn btn-primary">Publicar un producto</a>
+    </div>
+    <br><br>
+    
 </div>
 
 @endsection
