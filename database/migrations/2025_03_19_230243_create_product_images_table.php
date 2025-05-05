@@ -22,6 +22,8 @@ return new class extends Migration
             ->on('products')
             ->onDelete('cascade');
 
+            $table->timestamps();
+
         });
     }
 

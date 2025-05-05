@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", serif;
+}
+
+body {
+    background-image: url(/public/assets/img/loginAssets/bg-db2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.formulario {
+    position: fixed;
+    top: 10vh;
+    left: 50%; /* Centra el formulario horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posición para que esté realmente centrado */
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 80vh; /* Agrega una altura máxima */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.formulario form input, 
+.formulario form textarea, 
+.formulario form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #dfdfdf;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 5px; /* Reducido el espacio entre label y input */
+}
+
+.formulario form h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #052857;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px; /* Añadido espacio hacia arriba */
+    font-size: 16px;
+    color: #052857;
+}
+
+.formulario form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 100px;
+    font-size: 14px;
+    background: #052857;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.back-butom {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.back-butom:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.btn-inicio {
+    display: inline-block;
+}
+
+.img-boton {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#imagePreview {
+    width: 150px;  /* Establece un tamaño fijo */
+    height: auto;  /* Mantén la relación de aspecto */
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+
+
+

@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product_image extends Model
 {
     //
-    public function product(){
-        return $this->belongsTo('App\Models\Product');
+    public $timestamps = false;
+
+    public function product_image()
+    {
+        return $this->hasMany(Product_Image::class);
     }
 }

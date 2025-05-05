@@ -66,3 +66,49 @@ function login(){
 
     
 }
+
+const btn = document.querySelector("#btn-enviar");
+const formulario = document.querySelector("#form-reg");
+
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const datos = new FormData(formulario);
+
+    fetch('crearUsuario', {
+        method: 'post',
+        body: datos
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+
+        // Mostrar errores si los hay
+        if (result.alerta === "danger") {
+            document.querySelector(".errors-nombre").textContent = result.name ? result.name[0] : "";
+            document.querySelector(".errors-email").textContent = result.email ? result.email[0] : "";
+            document.querySelector(".errors-password").textContent = result.password ? result.password[0] : "";
+            document.querySelector(".errors-password_confirmation").textContent = result.password_confirmation ? result.password_confirmation[0] : "";
+
+            document.querySelectorAll(".badge").forEach(span => {
+                span.style.display = "block";
+                span.style.textAlign = "left";
+            });
+
+            setTimeout(() => {
+                document.querySelectorAll(".badge").forEach(span => {
+                    span.style.display = "none";
+                });
+            }, 3000);
+        }
+
+        // Si todo salió bien, redirigir
+        if (result.alerta === "success") {
+            window.location.href = result.redirect;
+        }
+    })
+    .catch(error => {
+        console.error('Error en la petición:', error);
+    });
+});
+

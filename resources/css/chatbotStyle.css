@@ -12,9 +12,11 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: background 0.3s ease;
+    transition: transform 0.1s ease;
 }
 .chatbot-toggle:hover {
     background-color: #ba1aa7;
+    transform: scale(1.5);
 }
 
 /* Contenedor flotante del chatbot */

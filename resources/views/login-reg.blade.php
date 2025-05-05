@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Inicio de Sesion</title>
     @vite('resources/css/loginStyle.css')
     @vite('resources/css/preloaderStyle.css')
@@ -41,29 +42,52 @@
                 <div class="caja__trasera-register">
                     <h3>¿No tienes cuenta?</h3>
                     <p>Registrate para entrar en la pagina</p>
-                    <button id="btn__registrarse">Registrarse</button>
+                    <button type="button" id="btn__registrarse">Registrarse</button>
                 </div>
             </div>
+
             <!-- Formulario de Login y Registro -->
             <div class="contenedor__login-register">
+
+
                 <!--Login-->
-                <form action="" class="formulario__login">
+                <form action="{{ route('login') }}" method="POST" class="formulario__login">
+                    @csrf
                     <h2>Iniciar Sesion</h2>
                     <input  type="text" placeholder="Correo Electronico" name="email">
                     <input type="password" placeholder="Contraseña" name="password">
                     <a href="">
                         <p class="blue">Olvidaste tu contraseña?</p>
                     </a>
-                    <button>Entrar</button>
+                    <button type="submit">Entrar</button>
                 </form>
+
+
                 <!--Registro-->
-                <form action="" class="formulario__register">
+                <form id="form-reg" class="formulario__register">
+                    @csrf
                     <h2>Registrarse</h2>
-                    <input type="text" placeholder="Nombre" name="name">
-                    <input type="text" placeholder="Correo Electronico" name="email">
-                    <input type="text" placeholder="Usuario" name="username">
-                    <input type="text" placeholder="Contraseña" name="password">
-                    <button>Registrarse</button>
+                    <div>
+                        <input type="text" placeholder="Nombre" name="name" id="name">
+                        <span class="badge text-danger errors-nombre"></span>
+                    </div>
+
+                    <div>
+                        <input type="text" placeholder="Correo Electronico" name="email" id="email">
+                        <span class="badge text-danger errors-email"></span>
+                    </div>
+                    
+                    <div>
+                        <input type="password" placeholder="Contraseña" name="password" id="password">
+                        <span class="badge text-danger errors-password"></span>
+                    </div>
+
+                    <div>
+                        <input type="password" placeholder="Confirmar Contraseña" name="password_confirmation" id="password_confirmation">
+                        <span class="badge text-danger errors-password_confirmation"></span>
+                    </div>
+                    
+                    <button type="submit" id="btn-enviar">Registrarse</button>
                 </form>
 
             </div>
