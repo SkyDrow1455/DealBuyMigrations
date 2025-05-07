@@ -27,4 +27,11 @@ class Product extends Model
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class, 'cart_products')
+                    ->withPivot('quantity', 'price', 'total') // Campos adicionales en la tabla intermedia
+                    ->withTimestamps();
+    }
 }
