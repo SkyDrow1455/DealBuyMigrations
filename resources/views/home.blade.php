@@ -56,7 +56,7 @@
     <div class="icon-custom">
 
       <!--Logo-->
-      <img src="./assets/img/logo.png" width="70px" />
+      <img src="{{ asset('assets/logo.png') }}" width="70px" />
     </div>
     <div class="container px-4 px-lg-5">
 
@@ -83,29 +83,13 @@
             <li>
               <a class="dropdown-item" href="{{ route('products.create') }}">Añadir producto</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#!">Informacion</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Tienda</a
-              >
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="{{ route('p') }}">Todos los productos</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#!">Productos Populares</a>
-                </li>
-                <li><a class="dropdown-item" href="#!">Nuevos</a></li>
-              </ul>
+            <li>
+              <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
+            <li>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="dropdown-item">Cerrar sesión</button>
+              </form>
             </li>
           </ul>
         </div>

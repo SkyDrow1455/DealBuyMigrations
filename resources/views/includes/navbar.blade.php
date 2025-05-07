@@ -25,7 +25,7 @@
 
         <!--Logo-->
         <a href="{{ route('home') }}" class="navbar-brand" id="logo">
-            <img src="{{ asset('assets/img/logo.png') }}" width="70px" />
+            <img src="{{ asset('assets/logo.png') }}" width="70px" />
         </a>
     </div>
     <div class="container px-4 px-lg-5">

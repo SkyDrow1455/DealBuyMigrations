@@ -54,9 +54,9 @@
                 <form action="{{ route('login') }}" method="POST" class="formulario__login">
                     @csrf
                     <h2>Iniciar Sesion</h2>
-                    <input  type="text" placeholder="Correo Electronico" name="email">
+                    <input  type="email" placeholder="Correo Electronico" name="email">
                     <input type="password" placeholder="Contraseña" name="password">
-                    <a href="">
+                    <a href="{{ route('password.request') }}">
                         <p class="blue">Olvidaste tu contraseña?</p>
                     </a>
                     <button type="submit">Entrar</button>

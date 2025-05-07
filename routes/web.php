@@ -1,14 +1,33 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use App\Http\Controllers\User;
-use App\Http\Controllers\RoleController;
-use App\Models\Role;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatbotController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Backend\adminController;
+use Illuminate\Support\Facades\Mail;
+
+
+Route::get('/', function () {
+    return view('home');
+});
+
+
+Route::get('/check-mail', function () {
+    return config('mail');
+});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
 
 Route::post('/logout', function () {
     Auth::logout();
@@ -40,9 +59,18 @@ Route::get('/d', function () {
 
 
 
-Route::get('/login_admin', [adminController::class, 'login'])->name('login_admin');
+//Route::get('/login_admin', [adminController::class, 'login'])->name('login_admin');
 
 
+
+Route::get('/test-mail', function () {
+    Mail::raw('Este es un correo de prueba desde Brevo!', function ($message) {
+        $message->to('camiloandressamboni55@gmail.com')
+                ->subject('Correo de prueba');
+    });
+
+    return 'Correo enviado!';
+});
 
 
 
@@ -50,6 +78,10 @@ Route::get('/login_admin', [adminController::class, 'login'])->name('login_admin
 Route::post('/chat', [ChatGPTController::class, 'askChatGPT']);
 
 Route::post('/login-reg', [UserController::class, 'login'])->name('login');
+Route::get('/login-reg', function () {
+    return view('login-reg'); // o la vista que corresponda al login
+})->name('login-reg');
+
 
 Route::get('/login', [Usercontroller::class, 'createUser'])->name('login-reg');
 Route::post('/crearUsuario',[UserController::class,'register'])->name('user.register');
@@ -72,6 +104,3 @@ Route::get('/productos', [ProductController::class, 'allProducts'])->name('allPr
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::resource('products', \App\Http\Controllers\ProductController::class);
-
-
-
