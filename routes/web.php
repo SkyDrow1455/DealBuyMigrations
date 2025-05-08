@@ -8,6 +8,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatbotController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\OfferController;
 
 
 Route::post('/logout', function () {
@@ -57,6 +58,19 @@ Route::get('/productos', [ProductController::class, 'allProducts'])->name('allPr
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::resource('products', \App\Http\Controllers\ProductController::class);
+
+
+Route::resource('offers', OfferController::class);
+
+Route::post('offers/{id}/accept', [OfferController::class, 'accept'])->name('offers.accept');
+
+Route::post('offers/{id}/reject', [OfferController::class, 'reject'])->name('offers.reject');
+
+Route::post('offers/{id}/counteroffer', [OfferController::class, 'counteroffer'])->name('offers.counteroffer');
+
+
+
+
 
 
 

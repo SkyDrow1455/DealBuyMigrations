@@ -85,8 +85,15 @@
             </li>
             <li>
               <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
+            </li>
             <li>
-              <form method="POST" action="{{ route('logout') }}">
+              <a class="dropdown-item" href="{{ route('offers.index') }}">Mis ofertas</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ route('offers.create') }}">Añadir ofertas</a>
+            </li>
+            <li>
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="dropdown-item">Cerrar sesión</button>
               </form>

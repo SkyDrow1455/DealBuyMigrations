@@ -6,12 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    //
-    public function user(){
-        return $this->belongsTo('App\Models\User');
+    protected $fillable = ['buyer_id', 'product_id', 'amount', 'status'];
+    
+    public $timestamps = false;
+    
+    public function buyer()
+    {
+        return $this->belongsTo(User::class, 'buyer_id');
     }
 
-    public function product(){
-        return $this->belongsTo('App\Models\Product');
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
+
+    
 }

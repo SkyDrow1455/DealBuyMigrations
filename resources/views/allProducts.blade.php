@@ -47,6 +47,10 @@
                     <div class="text-center">
                         <a class="btn btn-outline-dark mt-auto" href="#">Añadir al carrito</a>
                     </div>
+                    <p></p>
+                    <div class="text-center">
+                        <a class="btn btn-outline-dark mt-auto" href="{{ route('offers.index') }}">Ofertar</a>
+                    </div>
                 </div>
             </div>
         </div>
