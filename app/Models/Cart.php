@@ -21,7 +21,7 @@ class Cart extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class, 'cart_products')
-                    ->withPivot('quantity', 'price', 'total') // Campos adicionales en la tabla intermedia
-                    ->withTimestamps();
+            ->withPivot('quantity', 'price', 'total')
+            ->withTimestamps();
     }
 }

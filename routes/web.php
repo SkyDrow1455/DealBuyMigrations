@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 
 Route::get('/', function () {
@@ -49,9 +48,9 @@ Route::get('/bot', function () {
     return view('chatbot');
 })->name('bot');
 
-Route::get('/p', function () {
-    return view('prueba');
-})->name('p');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
 
 Route::get('/d', function () {
     return view('admin.dashboard');
@@ -62,15 +61,6 @@ Route::get('/d', function () {
 //Route::get('/login_admin', [adminController::class, 'login'])->name('login_admin');
 
 
-
-Route::get('/test-mail', function () {
-    Mail::raw('Este es un correo de prueba desde Brevo!', function ($message) {
-        $message->to('camiloandressamboni55@gmail.com')
-                ->subject('Correo de prueba');
-    });
-
-    return 'Correo enviado!';
-});
 
 
 
@@ -104,3 +94,11 @@ Route::get('/productos', [ProductController::class, 'allProducts'])->name('allPr
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::resource('products', \App\Http\Controllers\ProductController::class);
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
+    Route::delete('/cart/remove/{productId}', [CartController::class, 'removeProduct']);
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+});
