@@ -79,7 +79,7 @@ Route::post('/chat', [ChatGPTController::class, 'askChatGPT']);
 
 Route::post('/login-reg', [UserController::class, 'login'])->name('login');
 Route::get('/login-reg', function () {
-    return view('login-reg'); // o la vista que corresponda al login
+    return view('login-reg');
 })->name('login-reg');
 
 

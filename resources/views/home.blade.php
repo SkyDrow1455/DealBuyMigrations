@@ -86,6 +86,14 @@
             <li>
               <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
             <li>
+              @auth
+              @if (auth()->user()->hasRole('admin'))
+              {{-- Opciones solo para administradores --}}
+            <li>
+              <a class="dropdown-item" href="{{route('d')}}">Panel Administrativo</a>
+            <li>
+              @endif
+              @endauth
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="dropdown-item">Cerrar sesión</button>
@@ -102,9 +110,6 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#!">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('d')}}">Administrador</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#!">Informacion</a>
