@@ -77,7 +77,17 @@
             </li>
             <li>
               <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
+            </li>
             <li>
+<<<<<<< HEAD
+              <a class="dropdown-item" href="{{ route('offers.index') }}">Mis ofertas</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ route('offers.create') }}">Añadir ofertas</a>
+            </li>
+            <li>
+            <form method="POST" action="{{ route('logout') }}">
+=======
               @auth
               @if (auth()->user()->hasRole('admin'))
               {{-- Opciones solo para administradores --}}
@@ -87,6 +97,7 @@
               @endif
               @endauth
               <form method="POST" action="{{ route('logout') }}">
+>>>>>>> 907ed6621f79880d93029905068df9ccfa07b259
                 @csrf
                 <button type="submit" class="dropdown-item">Cerrar sesión</button>
               </form>

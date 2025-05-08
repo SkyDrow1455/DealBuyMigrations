@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('buyer_id');
             $table->unsignedBigInteger('product_id');
             $table->decimal('amount', 10, 2);
-            $table->enum('status', ['pending', 'accepted', 'rejected', 'counteroffer'])->default('pending');
+            $table->enum('status', ['pendiente', 'aceptado', 'rechazado', 'contraoferta'])->default('pendiente');
             $table->timestamp('created_at')->useCurrent();
         
             // Foreign keys

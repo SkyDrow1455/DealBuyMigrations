@@ -165,4 +165,11 @@ class ProductController extends Controller
 
         return redirect()->route('myProducts')->with('success', 'Producto actualizado correctamente.');
     }
+    public function show($id) {
+        // Recuperar el producto por ID, incluyendo la relación con las imágenes y ofertas
+        $product = Product::with(['product_image', 'offers.buyer'])->findOrFail($id);
+        // Cargar las imágenes del producto
+        return view('products.productShow', compact('product'));
+    }
+    
 }

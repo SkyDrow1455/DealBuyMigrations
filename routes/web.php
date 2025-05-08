@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\adminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\OfferController;
 
 
 Route::get('/', function () {
@@ -99,9 +100,26 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::resource('products', \App\Http\Controllers\ProductController::class);
 
 
+<<<<<<< HEAD
+Route::resource('offers', OfferController::class);
+
+Route::post('offers/{id}/accept', [OfferController::class, 'accept'])->name('offers.accept');
+
+Route::post('offers/{id}/reject', [OfferController::class, 'reject'])->name('offers.reject');
+
+Route::post('offers/{id}/counteroffer', [OfferController::class, 'counteroffer'])->name('offers.counteroffer');
+
+
+
+
+
+
+
+=======
 Route::middleware('auth')->group(function () {
     Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
     Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
     Route::delete('/cart/remove/{productId}', [CartController::class, 'removeProduct']);
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });
+>>>>>>> 907ed6621f79880d93029905068df9ccfa07b259
