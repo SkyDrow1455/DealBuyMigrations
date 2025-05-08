@@ -1,5 +1,6 @@
 @extends('admin.layouts.master_admin')
 @section('content')
+
 <section class="section">
   <div class="section-header">
     <h1>Dashboard</h1>
@@ -171,47 +172,34 @@
             <table class="table table-striped mb-0">
               <thead>
                 <tr>
-                  <th>Titulo</th>
+                  <th>Producto</th>
                   <th>Autor</th>
                   <th>Acción</th>
                 </tr>
               </thead>
               <tbody>                         
                 <tr>
-                  <td>
-                    RTX 3090
-                    <div class="table-links">
-                      en <a href="#">Publicación de vendedor</a>
-                      <div class="bullet"></div>
-                      <a href="#">Ver</a>
-                    </div>
-                  </td>
-                  <td>
-                    <a class="rounded-circle mr-1"> Chepe Town</a>
-                  </td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Monitor 4K
-                    <div class="table-links">
-                      en <a href="#">Compra de usuario</a>
-                      <div class="bullet"></div>
-                      <a href="#">Ver</a>
-                    </div>
-                  </td>
-                  <td>
-                    <a class="rounded-circle mr-1"> Perez Juanito</a>
-                  </td>
-                  <td>
-                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                  </td>
-            
-                </tr>
+                  
+                @foreach($products as $product)
+                  <tr>
+                    <td>
+                      {{ $product->name }}
+                      <div class="table-links">
+                        en <a href="{{ route('allProducts') }}">Publicación del vendedor</a>
+                        <div class="bullet"></div>
+                        <a href="#">Ver</a>
+                      </div>
+                    </td>
+                    <td>
+                      <a class="rounded-circle mr-1">{{ $product->user->name }}</a>
+                    </td>
+                    <td>
+                      <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tr>                
               </tbody>
             </table>
           </div>

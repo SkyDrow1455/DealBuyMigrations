@@ -30,15 +30,7 @@
 
 <body>
   <!-- Loader -->
-  <div class="preloader">
-    <div class="spiner">
-      <div class="spiner">
-        <div class="spiner">
-          <div class="spiner"> </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  @include('layouts.preloader')
   <!-- Botón flotante para abrir el chatbot -->
   <div id="chatbot-toggle" class="chatbot-toggle">💬</div>
 

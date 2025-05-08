@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Http\Controllers\Backend\adminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +61,7 @@ Route::get('/d', function () {
 
 
 //Route::get('/login_admin', [adminController::class, 'login'])->name('login_admin');
+//Route::get('/d', [adminController::class, 'dashboard'])->name('dashboard');
 
 
 

@@ -15,15 +15,7 @@
 
 <body>
     <!-- Loader -->
-    <div class="preloader">
-        <div class="spiner">
-            <div class="spiner">
-                <div class="spiner">
-                    <div class="spiner"> </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.preloader')
 
 
     <main>
