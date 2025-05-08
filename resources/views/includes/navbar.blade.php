@@ -25,7 +25,7 @@
 
         <!--Logo-->
         <a href="{{ route('home') }}" class="navbar-brand" id="logo">
-            <img src="{{ asset('assets/img/logo.png') }}" width="70px" />
+            <img src="{{ asset('assets/logo.png') }}" width="70px" />
         </a>
     </div>
     <div class="container px-4 px-lg-5">
@@ -116,13 +116,11 @@
             </div>
 
 
-            <form class="d-flex">
-                <button class="btn btn-outline-dark" type="button">
-                    <i class="bi-cart-fill me-1"></i>
-                    Carrito
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-            </form>
+            <a href="{{ route('cart.index') }}" class="btn btn-outline-dark d-flex align-items-center">
+                <i class="bi-cart-fill me-1"></i>
+                Carrito
+            </a>
+
         </div>
     </div>
 </nav>

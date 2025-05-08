@@ -1,0 +1,14 @@
+.centrar {
+    color: white;
+    font-size: 2em;
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh; 
+    
+    
+}
+body{
+    background: linear-gradient(135deg, #9989fe, #e866ff);
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,8 +10,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Inicio de Sesion</title>
     @vite('resources/css/loginStyle.css')
+    @vite('resources/css/preloaderStyle.css')
 </head>
+
 <body>
+    <!-- Loader -->
+    <div class="preloader">
+        <div class="spiner">
+            <div class="spiner">
+                <div class="spiner">
+                    <div class="spiner"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <main>
         <div class="back-butom">
             <a href="{{ route('home') }}" class="btn-inicio">
@@ -18,7 +33,7 @@
                 <p>Inicio</p>
             </a>
         </div>
-        
+
         <div class="contenedor__todo">
             <div class="caja__trasera">
                 <div class="caja__trasera-login">
@@ -38,15 +53,23 @@
 
 
                 <!--Login-->
-                <form action="{{ route('login') }}" method="POST" class="formulario__login">
+                <form id="form-log" class="formulario__login">
                     @csrf
                     <h2>Iniciar Sesion</h2>
-                    <input  type="text" placeholder="Correo Electronico" name="email">
-                    <input type="password" placeholder="Contraseña" name="password">
-                    <a href="">
+                    <div>
+                        <input type="email" placeholder="Correo Electronico" name="email">
+                        <span class="badge text-danger errors-emaill"></span>
+                    </div>
+
+                    <div>
+                        <input type="password" placeholder="Contraseña" name="password">
+                        <span class="badge text-danger errors-passwordl"></span>
+                    </div>
+
+                    <a href="{{ route('password.request') }}">
                         <p class="blue">Olvidaste tu contraseña?</p>
                     </a>
-                    <button type="submit">Entrar</button>
+                    <button type="submit" id="btn-login">Entrar</button>
                 </form>
 
 
@@ -63,7 +86,7 @@
                         <input type="text" placeholder="Correo Electronico" name="email" id="email">
                         <span class="badge text-danger errors-email"></span>
                     </div>
-                    
+
                     <div>
                         <input type="password" placeholder="Contraseña" name="password" id="password">
                         <span class="badge text-danger errors-password"></span>
@@ -73,7 +96,7 @@
                         <input type="password" placeholder="Confirmar Contraseña" name="password_confirmation" id="password_confirmation">
                         <span class="badge text-danger errors-password_confirmation"></span>
                     </div>
-                    
+
                     <button type="submit" id="btn-enviar">Registrarse</button>
                 </form>
 
@@ -83,5 +106,8 @@
 
     </main>
     @vite('resources/js/loginScript.js')
+    @vite('resources/js/loaderScript.js')
+    @vite('resources/js/validatorLogin.js')
 </body>
+
 </html>

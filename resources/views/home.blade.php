@@ -56,7 +56,7 @@
     <div class="icon-custom">
 
       <!--Logo-->
-      <img src="./assets/img/logo.png" width="70px" />
+      <img src="{{ asset('assets/logo.png') }}" width="70px" />
     </div>
     <div class="container px-4 px-lg-5">
 
@@ -87,6 +87,7 @@
               <a class="dropdown-item" href="{{ route('myProducts') }}">Mis productos</a>
             </li>
             <li>
+<<<<<<< HEAD
               <a class="dropdown-item" href="{{ route('offers.index') }}">Mis ofertas</a>
             </li>
             <li>
@@ -94,6 +95,17 @@
             </li>
             <li>
             <form method="POST" action="{{ route('logout') }}">
+=======
+              @auth
+              @if (auth()->user()->hasRole('admin'))
+              {{-- Opciones solo para administradores --}}
+            <li>
+              <a class="dropdown-item" href="{{route('d')}}">Panel Administrativo</a>
+            <li>
+              @endif
+              @endauth
+              <form method="POST" action="{{ route('logout') }}">
+>>>>>>> 907ed6621f79880d93029905068df9ccfa07b259
                 @csrf
                 <button type="submit" class="dropdown-item">Cerrar sesión</button>
               </form>
@@ -145,13 +157,10 @@
           </form>
         </div>
 
-        <form class="d-flex">
-          <button class="btn btn-outline-dark" type="button">
-            <i class="bi-cart-fill me-1"></i>
-            Carrito
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-          </button>
-        </form>
+        <a href="{{ route('cart.index') }}" class="btn btn-outline-dark d-flex align-items-center">
+          <i class="bi-cart-fill me-1"></i>
+          Carrito
+        </a>
       </div>
     </div>
   </nav>

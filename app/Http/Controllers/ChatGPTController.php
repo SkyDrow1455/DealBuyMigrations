@@ -18,7 +18,7 @@ class ChatGPTController extends Controller
             'json' => [
                 'model' => 'gpt-4',
                 'messages' => [
-                    ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+                    ['role' => 'system', 'content' => 'Eres un asistente virtual de DealBuy, un e-commerce especializado en tecnología, productos electrónicos y gadgets. Solo estás programado para responder preguntas sobre productos tecnológicos, comparativas, características, precios, recomendaciones y funcionamiento de dispositivos. Si te hacen una pregunta fuera de ese contexto, responde: "No estoy programado para responderte eso".'],
                     ['role' => 'user', 'content' => $request->input('prompt')],  // Aquí se toma 'prompt'
                 ],
                 'max_tokens' => 100,

@@ -13,7 +13,6 @@
     </div>
 </header>
 <div class="container">
-
     @if($products->isEmpty())
     <p class="text-center">No hay productos disponibles aún.</p>
     @else
@@ -45,7 +44,14 @@
                 <!-- Product actions -->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                     <div class="text-center">
-                        <a class="btn btn-outline-dark mt-auto" href="#">Añadir al carrito</a>
+                        <!-- Formulario para añadir al carrito -->
+                        <form action="{{ route('cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="price" value="{{ $product->price }}">
+                            <input type="number" name="quantity" value="1" min="1" style="width: 60px;">
+                            <button type="submit" class="btn btn-outline-dark mt-auto">Añadir al carrito</button>
+                        </form>
                     </div>
                     <p></p>
                     <div class="text-center">
@@ -58,5 +64,6 @@
     </div>
     @endif
 </div>
+
 
 @endsection

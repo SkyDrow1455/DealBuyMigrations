@@ -1,3 +1,12 @@
+import './bootstrap';
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
+
+
 import * as THREE from 'three';
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
